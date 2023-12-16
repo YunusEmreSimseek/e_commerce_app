@@ -23,6 +23,18 @@ class BottomNavBarViewModel extends Cubit<BottomNavBarStates> {
     }
     return const HomeView();
   }
+
+  String decisionAppbarText() {
+    switch (state.currentIndex) {
+      case 0:
+        return StringConstant.bnvHome;
+      case 1:
+        return StringConstant.bnvFavourites;
+      case 2:
+        return StringConstant.bnvBasket;
+    }
+    return StringConstant.bnvHome;
+  }
 }
 
 class BottomNavBarStates {

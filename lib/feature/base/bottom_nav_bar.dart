@@ -1,6 +1,4 @@
-import 'package:e_commerce_app/feature/base/bottom_nav_bar_viewmodel.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+part of 'base_scaffold.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({super.key});

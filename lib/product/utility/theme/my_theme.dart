@@ -12,5 +12,5 @@ class MyTheme {
           color: Colors.transparent,
           elevation: 0,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
-          titleTextStyle: TextStyle(color: ColorConstant.colorBlack, fontSize: 24)));
+          titleTextStyle: TextStyle(color: ColorConstant.colorBlack, fontSize: 35)));
 }

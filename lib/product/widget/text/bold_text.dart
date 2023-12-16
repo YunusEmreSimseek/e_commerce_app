@@ -9,7 +9,7 @@ class BoldText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: context.general.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+      style: context.general.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
     );
   }
 }

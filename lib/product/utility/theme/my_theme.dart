@@ -8,6 +8,10 @@ class MyTheme {
   static final ThemeData dark = ThemeData.dark().copyWith();
 
   static final ThemeData light = ThemeData.light().copyWith(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        selectedLabelStyle: TextStyle(fontSize: 20),
+        unselectedLabelStyle: TextStyle(fontSize: 20),
+      ),
       appBarTheme: const AppBarTheme(
           color: Colors.transparent,
           elevation: 0,

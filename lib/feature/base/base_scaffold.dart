@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/feature/base/bottom_nav_bar_viewmodel.dart';
+import 'package:e_commerce_app/feature/basket/basket_view_model.dart';
 import 'package:e_commerce_app/feature/home/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,6 +22,7 @@ class _BaseScaffoldState extends State<BaseScaffold> {
       providers: [
         BlocProvider<BottomNavBarViewModel>(create: (contextBottom) => BottomNavBarViewModel()),
         BlocProvider<HomeViewModel>(create: (contextHome) => HomeViewModel()),
+        BlocProvider<BasketViewModel>(create: (contextHome) => BasketViewModel()),
       ],
       child: BlocBuilder<BottomNavBarViewModel, BottomNavBarStates>(
         builder: (contextBuilderBottom, stateBuilderBottom) {

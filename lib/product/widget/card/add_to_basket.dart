@@ -7,30 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
 
-class AddtoBasketCard extends StatefulWidget {
-  const AddtoBasketCard({super.key, required this.product});
+class AddOrMinustoBasketCard extends StatelessWidget {
+  const AddOrMinustoBasketCard({super.key, required this.product});
   final ProductModel product;
 
   @override
-  State<AddtoBasketCard> createState() => _AddtoBasketCardState();
-}
-
-class _AddtoBasketCardState extends State<AddtoBasketCard> {
-  @override
   Widget build(BuildContext context) {
-    return BlocConsumer<BasketViewModel, BasketStates>(
-      listener: (context, state) {},
+    return BlocBuilder<BasketViewModel, BasketStates>(
       builder: (context, state) {
         final read = context.read<BasketViewModel>();
+        final productList = state.productList;
         bool isContain = false;
-        if (state.productList != null) {
-          if (state.productList!.isEmpty) {
-            isContain = false;
-          } else if (state.productList!.contains(widget.product)) {
-            isContain = true;
-          }
-        } else if (state.productList == null) {
-          isContain = false;
+
+        if (productList != null && productList.isNotEmpty && productList.where((x) => x.id == product.id).isNotEmpty) {
+          isContain = true;
         } else {
           isContain = false;
         }
@@ -39,7 +29,7 @@ class _AddtoBasketCardState extends State<AddtoBasketCard> {
           width: context.sized.dynamicWidth(.2),
           child: InkWell(
             onTap: () {
-              isContain ? read.takeProductFromBasket(widget.product) : read.addProductIntoBasket(widget.product);
+              isContain ? read.takeProductFromBasket(product) : read.addProductIntoBasket(product);
             },
             child: Card(
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),

@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IsFavourite extends StatelessWidget {
-  const IsFavourite({super.key, required this.index});
-  final int index;
+  const IsFavourite({super.key, required this.id});
+  final int id;
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeViewModel, HomeStates>(
       builder: (context, state) {
+        final isFavourite = state.productList.where((x) => x.id == id).single.isFavourite;
+
         return InkWell(
           onTap: () {
-            context.read<HomeViewModel>().changeFavourite(index);
+            context.read<HomeViewModel>().changeFavourite(id);
           },
           child: Card(
             shape: const CircleBorder(),
-            child: state.productList[index].isFavourite
-                ? const Icon(CupertinoIcons.heart_fill)
-                : const Icon(CupertinoIcons.heart),
+            child: isFavourite ? const Icon(CupertinoIcons.heart_fill) : const Icon(CupertinoIcons.heart),
           ),
         );
       },

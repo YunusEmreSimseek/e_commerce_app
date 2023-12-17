@@ -20,4 +20,7 @@ class StringConstant {
   // Favourite Page
   static const favouriteTitle = 'Your favourite products';
   static const favouriteNoFavTitle = 'There are no product in your favourites';
+
+  // General
+  static const generalEuro = "€";
 }

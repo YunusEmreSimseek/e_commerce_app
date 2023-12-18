@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IsFavourite extends StatelessWidget {
   const IsFavourite({super.key, required this.id});
-  final int id;
+  final String id;
 
   @override
   Widget build(BuildContext context) {

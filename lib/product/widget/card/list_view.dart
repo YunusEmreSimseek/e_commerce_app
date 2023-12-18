@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/feature/model/product_model.dart';
 import 'package:e_commerce_app/product/constant/string_constant.dart';
+import 'package:e_commerce_app/product/models/new_product_model.dart';
 import 'package:e_commerce_app/product/widget/card/add_to_basket.dart';
 import 'package:e_commerce_app/product/widget/card/favourite.dart';
 import 'package:e_commerce_app/product/widget/text/bold_text.dart';
@@ -38,7 +38,7 @@ class FavouriteProductList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(indexedProduct.imagePath),
+                      Image.network(indexedProduct.imagePath ?? ''),
                       _columnOfCard(context, indexedProduct),
                     ],
                   ),
@@ -63,13 +63,13 @@ class FavouriteProductList extends StatelessWidget {
               children: [
                 Padding(
                   padding: context.padding.onlyRightLow,
-                  child: BoldText(title: indexedProduct.name),
+                  child: BoldText(title: indexedProduct.name ?? ''),
                 ),
-                IsFavourite(id: indexedProduct.id),
+                IsFavourite(id: indexedProduct.id ?? ''),
               ],
             ),
             context.sized.emptySizedHeightBoxLow,
-            SubtitleText(text: indexedProduct.content),
+            SubtitleText(text: indexedProduct.content ?? ''),
             context.sized.emptySizedHeightBoxLow,
             SubtitleText(text: '${indexedProduct.price.toString()} ${StringConstant.generalEuro}'),
             context.sized.emptySizedHeightBoxLow,

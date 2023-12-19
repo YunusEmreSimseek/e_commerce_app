@@ -23,4 +23,8 @@ class StringConstant {
 
   // General
   static const generalEuro = "€";
+
+  // Query
+  static const queryIsFavoruite = 'isFavourite';
+  static const queryPrice = 'price';
 }

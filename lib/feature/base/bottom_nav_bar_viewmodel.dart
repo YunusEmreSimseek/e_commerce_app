@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/feature/basket/basket_view.dart';
-import 'package:e_commerce_app/feature/favourite/favorite_view.dart';
-import 'package:e_commerce_app/feature/home/home_view.dart';
+import 'package:e_commerce_app/feature/basket_view.dart';
+import 'package:e_commerce_app/feature/favorite_view.dart';
+import 'package:e_commerce_app/feature/home_view.dart';
 import 'package:e_commerce_app/product/constant/string_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

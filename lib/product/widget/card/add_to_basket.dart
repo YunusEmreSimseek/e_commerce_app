@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/feature/basket/basket_view_model.dart';
+import 'package:e_commerce_app/feature/base_view_model.dart';
 import 'package:e_commerce_app/product/constant/string_constant.dart';
 import 'package:e_commerce_app/product/models/new_product_model.dart';
 import 'package:e_commerce_app/product/widget/text/subtitle_text.dart';
@@ -13,13 +13,13 @@ class AddOrMinustoBasketCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BasketViewModel, BasketStates>(
+    return BlocBuilder<BaseViewModel, BaseStates>(
       builder: (context, state) {
-        final read = context.read<BasketViewModel>();
-        final productList = state.productList;
+        final read = context.read<BaseViewModel>();
+        final productListInBasket = state.productListInBasket;
         bool isContain = false;
 
-        if (productList != null && productList.isNotEmpty && productList.where((x) => x.id == product.id).isNotEmpty) {
+        if (productListInBasket.isNotEmpty && productListInBasket.where((x) => x.id == product.id).isNotEmpty) {
           isContain = true;
         } else {
           isContain = false;
@@ -29,7 +29,7 @@ class AddOrMinustoBasketCard extends StatelessWidget {
           width: context.sized.dynamicWidth(.2),
           child: InkWell(
             onTap: () {
-              isContain ? read.takeProductFromBasket(product) : read.addProductIntoBasket(product);
+              isContain ? read.minusProductFromBasket(product) : read.addProductIntoBasket(product);
             },
             child: Card(
               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),

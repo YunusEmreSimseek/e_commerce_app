@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/feature/home/home_viewmodel.dart';
+import 'package:e_commerce_app/feature/base_view_model.dart';
 import 'package:e_commerce_app/product/constant/string_constant.dart';
 import 'package:e_commerce_app/product/widget/card/list_view.dart';
 import 'package:e_commerce_app/product/widget/text/title_text.dart';
@@ -17,17 +17,16 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() => context.read<HomeViewModel>().fetchAndLoad());
+
+    Future.microtask(() => context.read<BaseViewModel>().fetchProductsAndLoad());
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeViewModel, HomeStates>(
+    return BlocBuilder<BaseViewModel, BaseStates>(
       builder: (context, state) {
-        final read = context.read<HomeViewModel>();
-        //await read.fetchProducts();
         final source = state.productList;
-        read.fetchProducts();
+
         return Scaffold(
           body: Padding(
             padding: context.padding.normal,

@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/feature/base/base_scaffold.dart';
+import 'package:e_commerce_app/product/constant/string_constant.dart';
 import 'package:e_commerce_app/product/utility/init/project_inits.dart';
 import 'package:e_commerce_app/product/utility/theme/my_theme.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: MyTheme.light,
-      title: 'Material App',
+      title: StringConstant.appName,
       home: const BaseScaffold(),
     );
   }

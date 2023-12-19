@@ -13,7 +13,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(title),
       actions: [
-        BlocBuilder<HomeViewModel, HomeStates>(builder: (contextBuilderHome, stateBilderHome) {
+        BlocBuilder<BaseViewModel, BaseStates>(builder: (contextBuilderHome, stateBilderHome) {
           if (stateBilderHome.isLoading) {
             return const Center(child: CircularProgressIndicator());
           }

@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/feature/basket/basket_view_model.dart';
+import 'package:e_commerce_app/feature/base_view_model.dart';
 import 'package:e_commerce_app/product/constant/string_constant.dart';
 import 'package:e_commerce_app/product/widget/card/list_view.dart';
 import 'package:e_commerce_app/product/widget/text/bold_text.dart';
@@ -13,14 +13,13 @@ class BasketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BasketViewModel, BasketStates>(
+    return BlocBuilder<BaseViewModel, BaseStates>(
       builder: (context, state) {
-        final read = context.read<BasketViewModel>();
-        final source = state.productList;
+        final read = context.read<BaseViewModel>();
+        final source = state.productListInBasket;
         bool isEmpty = true;
-        if (state.productList != null) {
-          state.productList!.isEmpty ? isEmpty = true : isEmpty = false;
-        }
+        if (source.isNotEmpty) isEmpty = false;
+        if (source.isEmpty) isEmpty = true;
 
         return Scaffold(
           body: Padding(
@@ -33,7 +32,7 @@ class BasketView extends StatelessWidget {
               isEmpty
                   ? const SizedBox.shrink()
                   : FavouriteProductList(
-                      source: source!,
+                      source: source,
                       isBasket: true,
                     ),
               context.sized.emptySizedHeightBoxLow3x,

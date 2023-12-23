@@ -1,6 +1,9 @@
 class StringConstant {
   static const appName = 'E-Commerce App';
 
+  // Login Page
+  static const loginContent = 'Enter your email adress and password to get access your account';
+
   // Bottom Navigation Bar and App Bar
   static const bnvHome = 'Home';
   static const bnvFavourites = 'Favourites';
@@ -22,7 +25,8 @@ class StringConstant {
   static const favouriteNoFavTitle = 'There are no product in your favourites';
 
   // General
-  static const generalEuro = "€";
+  static const generalEuro = '€';
+  static const generalWelcome = 'Welcome';
 
   // Query
   static const queryIsFavoruite = 'isFavourite';
